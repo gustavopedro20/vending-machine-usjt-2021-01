@@ -7,7 +7,8 @@
         <div *ngFor="let candy of candys" class="shelf" (click)="selectCandy(candy)">
           <div
             [ngClass]="{ 'item': !candy.selected, 'item-selected': candy.selected && candy.canBuy, 'item-buy': candy.canBuy && !candy.selected }"
-            [ngStyle]="{ 'background-image': 'url(' + candy.url + ')'}"></div>
+            [ngStyle]="{ 'background-image': 'url(' + candy.url + ')'}">
+          </div>
           <div class="detail">
             <span class="code">{{ candy.name }}</span><span class="price">{{ getCoinFormatted(candy.price) }}</span>
           </div>
@@ -22,11 +23,15 @@
       </div>
     </div>
     <div class="section">
-      <form>
-        <input type="text" [value]="getCoinFormatted(totalCoin)" name="coinage" placeholder="0.00"
-          [disabled]="cannotProcessCoin">
-        <button type="button" (click)="buy()">Comprar</button>
-      </form>
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" class="coinage" [value]="getCoinFormatted(totalCoin)" placeholder="0.00"
+            [disabled]="cannotProcessCoin">
+        </div>
+        <div class="col-md-6">
+          <button type="button" (click)="buy()">Comprar</button>
+        </div>
+      </div>
     </div>
     <div class="section">
       <div class="tray" [attr.purchased]="purchased">

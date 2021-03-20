@@ -36,27 +36,29 @@ export class AppComponent implements OnInit {
   candyPurchased: Candy | null = null;
 
   constructor() {
-    this.candys = [{
-      name: 'A',
-      price: 6,
-      url: '../assets/images/a.png',
-      selected: false,
-      canBuy: false
-    },
-    {
-      name: 'B',
-      price: 7,
-      url: '../assets/images/b.png',
-      selected: false,
-      canBuy: false
-    },
-    {
-      name: 'C',
-      price: 8,
-      url: '../assets/images/c.png',
-      selected: false,
-      canBuy: false
-    }];
+    this.candys = [
+      {
+        name: 'A',
+        price: 6,
+        url: '../assets/images/a.png',
+        selected: false,
+        canBuy: false
+      },
+      {
+        name: 'B',
+        price: 7,
+        url: '../assets/images/b.png',
+        selected: false,
+        canBuy: false
+      },
+      {
+        name: 'C',
+        price: 8,
+        url: '../assets/images/c.png',
+        selected: false,
+        canBuy: false
+      }
+    ];
     this.coins = [
       {
         value: 1,
@@ -115,14 +117,12 @@ export class AppComponent implements OnInit {
       return
     }
     this.candyPurchased = this.candys.filter(c => c.selected)[0];
-    if (this.totalCoin < this.candyPurchased.price) return;
     this.candys.splice(this.candys.indexOf(this.candyPurchased), 1, this.getNullCandy());
     this.coinReturned = this.coinsReturn[this.totalCoin - this.candyPurchased.price];
     this.totalCoin = 0;
     this.clearCandys();
     this.history = [...this.history, this.candyPurchased.name, this.coinReturned.value];
     this.purchased = true;
-    console.log(this.coinReturned);
     console.log(this.history);
   }
 

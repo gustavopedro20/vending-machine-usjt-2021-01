@@ -1,5 +1,5 @@
-$machinecolor: #e1e6e6;
-$detailcolor: desaturate(darken($machinecolor, 60%), 3%);
+$machinecolor: #752373;
+$detailcolor: #000000;
 $lcdcolor: hsv(180, 70%, 85%);
 $bgcolor: hsv(180, 40%, 80%);
 $darknesscolor: darken(desaturate($machinecolor, 50%), 75%);
@@ -8,7 +8,7 @@ $machinewidth: 15em;
 h1 {
   text-align: center;
   font-size: 30px;
-  font-family: fantasy;
+  font-family: "lcd", Arial, Helvetica, sans-serif;
 }
 
 .machine {
@@ -64,11 +64,12 @@ h1 {
 
   .detail {
     position: relative;
-    color: fadeout(contrast($darknesscolor), 25%);
+    color: #ffffff;
     height: 1.5em;
     background: $detailcolor;
     border-top: none;
     border-bottom: none;
+    font-family: "lcd", Arial, Helvetica, sans-serif;
   }
 
   h3 {
@@ -103,11 +104,11 @@ h1 {
 }
 
 .item-selected {
-  background-color: #dabc15;
+  background-color: #9db33e;
 }
 
 .item-buy {
-  background-color: #fae103;
+  background-color: #e0cc16;
 }
 
 .selection,
@@ -193,7 +194,7 @@ h1 {
   }
 }
 
-form {
+.row {
   text-align: center;
 
   input,
@@ -207,6 +208,8 @@ form {
     outline: none;
     vertical-align: middle;
     margin: 0.0625em 0;
+    font-family: "lcd", Arial, Helvetica, sans-serif;
+    color: #ffffff;
   }
 
   button {
@@ -224,12 +227,27 @@ form {
     }
   }
 
+  .coinage {
+    text-align: center;
+    background: $darknesscolor;
+    padding: 20px;
+    font-family: "lcd", Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color: #ffffff;
+    line-height: 1.25em;
+    height: 1.25em;
+    text-transform: uppercase;
+    -moz-appearance: textfield;
+    width: 4.75em;
+    text-align: right;
+  }
+
   input {
     background: $darknesscolor;
-    color: $lcdcolor;
-    text-shadow: 0 0 0.125em fadeout($lcdcolor, 25%);
-    padding: 0 0.25em;
+    padding: 20px;
+    font-family: "lcd", Arial, Helvetica, sans-serif;
     font-size: 2em;
+    color: #ffffff;
     line-height: 1.25em;
     height: 1.25em;
     text-transform: uppercase;
