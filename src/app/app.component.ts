@@ -92,6 +92,14 @@ export class AppComponent implements OnInit {
       {
         value: 4,
         url: '../assets/images/4-return.png'
+      },
+      {
+        value: 5,
+        url: '../assets/images/5-return.png'
+      },
+      {
+        value: 6,
+        url: '../assets/images/6-return.png'
       }
     ];
   }
