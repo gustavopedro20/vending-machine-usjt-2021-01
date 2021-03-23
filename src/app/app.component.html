@@ -10,7 +10,9 @@
             [ngStyle]="{ 'background-image': 'url(' + candy.url + ')'}">
           </div>
           <div class="detail">
-            <span class="code">{{ candy.name }}</span><span class="price">{{ getCoinFormatted(candy.price) }}</span>
+            <div style="position: relative; left: 20%;">
+              <span class="code">{{ candy.name }}</span><span class="price" style="position: static;">{{ getCoinFormatted(candy.price) }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -25,7 +27,7 @@
     <div class="section">
       <div class="row">
         <div class="col-md-6">
-          <input type="text" class="coinage" [value]="getCoinFormatted(totalCoin)" placeholder="0.00"
+          <input type="text" class="coinage" style="text-align: center;" [value]="getCoinFormatted(totalCoin)" placeholder="0.00"
             [disabled]="cannotProcessCoin">
         </div>
         <div class="col-md-6">
@@ -46,3 +48,4 @@
     </div>
   </div>
 </div>
+<label style="font-size: -webkit-xxx-large; color: white">Thiagão</label>

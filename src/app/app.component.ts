@@ -123,6 +123,7 @@ export class AppComponent implements OnInit {
     this.clearCandys();
     this.history = [...this.history, this.candyPurchased.name, this.coinReturned.value];
     this.purchased = true;
+    this. playAudio();
     console.log(this.history);
   }
 
@@ -174,5 +175,12 @@ export class AppComponent implements OnInit {
       candy.canBuy = false;
       candy.selected = false;
     })
+  }
+
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/button-10.wav";
+    audio.load();
+    audio.play();
   }
 }
