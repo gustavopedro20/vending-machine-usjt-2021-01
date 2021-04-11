@@ -1,0 +1,22 @@
+<div id="canvas">
+    <p>In the background you can see the beautiful town of Primosten, Croatia.</p>
+    <div id="floorSelect">
+        <h4>Select your floor</h4>
+        <ul>
+            <li *ngFor="let floor of floors" (click)="onFloorClick(floor.value)">{{ floor.value }} </li>
+        </ul>
+    </div>
+    <div id="building">
+        <div id="elevatorShaft">
+            <div id="elevatorContainer" [style.transition]="elevatorTransition" [style.bottom]="elevatorBottom">
+                <div id="strings"></div>
+                <div id="elevator">
+                    <div [ngClass]="{'door active-left': doorIsActivated, 'door': !doorIsActivated}" id="leftDoor">
+                    </div>
+                    <div [ngClass]="{'door active-right': doorIsActivated, 'door': !doorIsActivated}" id="rightDoor">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
