@@ -1,19 +1,32 @@
-<div id="canvas">
-    <p>In the background you can see the beautiful town of Primosten, Croatia.</p>
-    <div id="floorSelect">
-        <h4>Select your floor</h4>
-        <ul>
-            <li *ngFor="let floor of floors" (click)="onFloorClick(floor.value)">{{ floor.value }} </li>
-        </ul>
-    </div>
-    <div id="building">
-        <div id="elevatorShaft">
-            <div id="elevatorContainer" [style.transition]="elevatorTransition" [style.bottom]="elevatorBottom">
-                <div id="strings"></div>
-                <div id="elevator">
-                    <div [ngClass]="{'door active-left': doorIsActivated, 'door': !doorIsActivated}" id="leftDoor">
-                    </div>
-                    <div [ngClass]="{'door active-right': doorIsActivated, 'door': !doorIsActivated}" id="rightDoor">
+<div class="container">
+    <div class="row">
+        <div class="painel col-md-3">
+            <div class="space"></div>
+            <div class="display">{{ isTransition ? decodeHTMLCode(symbolTransition) : floors[currentFloor].key }}</div>
+            <div style="height:25px"></div>
+            <div class="floor-box">
+                <div class="floor-btn" *ngFor="let floor of floors.slice(2, 4)">
+                    <button class="buttons" (click)="onFloorClick(floor.value)">{{ floor.key }}</button>
+                </div>
+            </div>
+            <div class="floor-box">
+                <div class="floor-btn" *ngFor="let floor of floors.slice(0, 2)">
+                    <button class="buttons" (click)="onFloorClick(floor.value)">{{ floor.key }}</button>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="building">
+                <div class="elevatorShaft">
+                    <div class="elevatorContainer" [style.transition]="elevatorTransition" [style.bottom]="elevatorBottom">
+                        <div class="transition"></div>
+                        <div class="elevator">
+                            <div [ngClass]="{'door-open': doorIsOpen, 'door-close': !doorIsOpen}" id="leftDoor">
+                            </div>
+                            <div [ngClass]="{'door-open': doorIsOpen, 'door-close': !doorIsOpen}" id="rightDoor">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
