@@ -24,10 +24,17 @@ export class ElevatorComponent implements OnInit {
   elevatorVelocity = 1100;
   isTransition = false;
   symbolTransition = '';
+  imageSource = `../../assets/images/elevator/transactions/q0.png`;
+  start = false;
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.start = true;
+      this.changeAutomatoTransaction(0, false);
+    }, 5000);
+  }
 
   onFloorClick(floor: number): void {
     if (this.isTransition) {
@@ -52,6 +59,7 @@ export class ElevatorComponent implements OnInit {
     this.doorIsOpen = false;
 
     setTimeout(() => {
+      this.changeAutomatoTransaction(floor, true);
       this.isTransition = true;
       this.elevatorTransition = `all ${animate}ms linear`;
       this.elevatorBottom = `${height}%`;
@@ -61,6 +69,7 @@ export class ElevatorComponent implements OnInit {
         this.doorIsOpen = true;
 
         setTimeout(() => this.isTransition = false, 600);
+        this.changeAutomatoTransaction(floor, false);
 
       }, animate);
 
@@ -77,5 +86,23 @@ export class ElevatorComponent implements OnInit {
     } else {
       this.symbolTransition = '&#8675;';
     }
+  }
+
+  private changeImageName(name: string): void {
+    this.imageSource = `../../assets/images/elevator/transactions/${name}.png`;
+  }
+
+  private changeAutomatoTransaction(floor: number, isArrow: boolean): void {
+    if (!isArrow) {
+      this.changeImageName(this.getFloorName(floor));
+      return;
+    }
+    const imageName = `${this.getFloorName(this.currentFloor)}_${this.getFloorName(floor)}`;
+    this.changeImageName(imageName);
+  }
+
+  private getFloorName(floorValue: number): string {
+    const floor = this.floors[floorValue];
+    return floor.key === 'T' ? 't' : `${floor.key}a`;
   }
 }

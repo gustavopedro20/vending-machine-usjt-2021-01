@@ -2,21 +2,21 @@
     <div class="row">
         <div class="painel col-md-3">
             <div class="space"></div>
-            <div class="display">{{ isTransition ? decodeHTMLCode(symbolTransition) : floors[currentFloor].key }}</div>
+            <div class="display">{{ isTransition ? decodeHTMLCode(symbolTransition) : start ? floors[currentFloor].key : 'STARTING' }}</div>
             <div style="height:25px"></div>
             <div class="floor-box">
                 <div class="floor-btn" *ngFor="let floor of floors.slice(2, 4)">
-                    <button class="buttons" (click)="onFloorClick(floor.value)">{{ floor.key }}</button>
+                    <button [disabled]="!start" class="buttons" (click)="onFloorClick(floor.value)">{{ floor.key }}</button>
                 </div>
             </div>
             <div class="floor-box">
                 <div class="floor-btn" *ngFor="let floor of floors.slice(0, 2)">
-                    <button class="buttons" (click)="onFloorClick(floor.value)">{{ floor.key }}</button>
+                    <button [disabled]="!start" class="buttons" (click)="onFloorClick(floor.value)">{{ floor.key }}</button>
                 </div>
             </div>
             <div class="space"></div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6">
             <div class="building">
                 <div class="elevatorShaft">
                     <div class="elevatorContainer" [style.transition]="elevatorTransition" [style.bottom]="elevatorBottom">
@@ -30,6 +30,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-3">
+            <img class="automato" [src]="imageSource" [alt]="imageSource" height="337px" width="500px">
         </div>
     </div>
 </div>
