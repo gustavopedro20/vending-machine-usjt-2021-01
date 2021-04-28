@@ -1,7 +1,7 @@
 <div class="container" style="padding-top: 1%;">
   <h1>Máquina de venda de doces</h1>
 
-  <ngb-alert *ngIf="alert != null" [type]="alert?.type" (closed)="closeAlert()">{{ alert?.message }}</ngb-alert>
+  <ngb-alert *ngIf="alert != null" [type]="alert.type" (closed)="closeAlert()">{{ alert?.message }}</ngb-alert>
 
   <div class="btn-group btn-back">
     <button type="button" routerLink="/" class="btn btn-outline-info">Voltar</button>

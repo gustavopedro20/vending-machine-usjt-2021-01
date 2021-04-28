@@ -6,17 +6,17 @@ type Candy = {
   url: string
   selected: boolean;
   canBuy: boolean;
-}
+};
 
 type Coin = {
   value: number,
   url: string
-}
+};
 
 type Alert = {
   type: string;
   message: string;
-}
+};
 
 @Component({
   selector: 'app-vending-machine',
@@ -106,14 +106,18 @@ export class VendingMachineComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  selectCandy(candy: Candy) {
-    if (!this.canByCandy(candy)) return;
+  selectCandy(candy: Candy): void {
+    if (!this.canByCandy(candy)) {
+      return;
+    }
     this.candys.forEach(c => c.selected = false);
     candy.selected = true;
   }
 
   buy(): void {
-    if (this.purchased) return;
+    if (this.purchased) {
+      return;
+    }
     if (!this.canByAnyCandy()) {
       this.alert = this.generateAlert('Insira um valor mínimo de um doce para efetuar uma compra!');
       this.closeAlertAfterNSeconds(5);
@@ -122,7 +126,7 @@ export class VendingMachineComponent implements OnInit {
     if (this.candys.every(c => !c.selected)) {
       this.alert = this.generateAlert('Selecione algum doce');
       this.closeAlertAfterNSeconds(5);
-      return
+      return;
     }
     this.candyPurchased = this.candys.filter(c => c.selected)[0];
     this.candys.splice(this.candys.indexOf(this.candyPurchased), 1, this.getNullCandy());
@@ -134,8 +138,10 @@ export class VendingMachineComponent implements OnInit {
     console.log(this.history);
   }
 
-  insertCoin(value: number) {
-    if (this.cannotProcessCoin || this.purchased) return;
+  insertCoin(value: number): void {
+    if (this.cannotProcessCoin || this.purchased) {
+      return;
+    }
     this.totalCoin += value;
     this.history = [...this.history, this.totalCoin];
     this.checkIfCandysAreAvailable();
@@ -152,7 +158,7 @@ export class VendingMachineComponent implements OnInit {
     return { name: '', price: 0, url: '', selected: false, canBuy: false };
   }
 
-  closeAlert(): void { this.alert = null }
+  closeAlert(): void { this.alert = null; }
 
   canByAnyCandy(): boolean {
     return this.candys.some(candy => this.totalCoin >= candy.price);
@@ -168,7 +174,9 @@ export class VendingMachineComponent implements OnInit {
 
   closeAlertAfterNSeconds(seconds: number): void {
     setTimeout(() => {
-      if (!this.alert) return;
+      if (!this.alert) {
+        return;
+      }
       this.alert = null;
     }, seconds * 1000);
   }
@@ -181,7 +189,7 @@ export class VendingMachineComponent implements OnInit {
     this.candys.forEach(candy => {
       candy.canBuy = false;
       candy.selected = false;
-    })
+    });
   }
 
 }
