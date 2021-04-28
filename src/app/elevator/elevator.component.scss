@@ -4,8 +4,14 @@ $background-color: #000000;
 $door-color: #787878;
 $button-activate-color: #5c00fb;
 
+h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: "lcd", Arial, Helvetica, sans-serif;
+}
+
 .container {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .painel {
@@ -94,7 +100,7 @@ $button-activate-color: #5c00fb;
 }
 
 .building {
-    width: 35%;
+    width: 60%;
     background: $elevator-color;
     height: $elevator-size;
     margin: 0 auto;
