@@ -1,0 +1,174 @@
+$elevator-size: 500px;
+$elevator-color: #752373;
+$background-color: #000000;
+$door-color: #787878;
+$button-activate-color: #5c00fb;
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: "lcd", Arial, Helvetica, sans-serif;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+.painel {
+    background-image: url("../../assets/images/elevator/background_panel.png");
+    background-size: 100% 100%;
+}
+
+.buttons {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    -webkit-transform: translateY(35%);
+    transform: translateY(35%);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+    width: 80px;
+    height: auto;
+    border: 2px solid lightgray;
+    -webkit-box-shadow: inset 0px 0px 2px 1px gray, inset 0px -3px 4px rgba(0, 0, 0, 0.3),
+        inset 0px 3px 4px rgba(255, 255, 255, 0.6), 0px -2px 3px rgba(0, 0, 0, 0.6),
+        0px 1px 2px rgba(255, 255, 255, 0.7), 0px 0px 1px 1px black, 0px 0px 0px 5px gray, 0px 0px 1px 6px black;
+    box-shadow: inset 0px 0px 2px 1px gray, inset 0px -3px 4px rgba(0, 0, 0, 0.3),
+        inset 0px 3px 4px rgba(255, 255, 255, 0.6), 0px -2px 3px rgba(0, 0, 0, 0.6),
+        0px 1px 2px rgba(255, 255, 255, 0.7), 0px 0px 1px 1px black, 0px 0px 0px 5px gray, 0px 0px 1px 6px black;
+    display: block;
+    cursor: pointer;
+    font-family: "Gill Sans";
+    font-size: 35px;
+    text-align: center;
+    color: #616161;
+    outline: none;
+}
+
+.buttons:hover {
+    border-color: #4077e5;
+}
+
+.buttons:active,
+.buttons.active {
+    border-color: $button-activate-color;
+    color: $button-activate-color;
+}
+
+.space {
+    height: 50px;
+}
+
+.display {
+    background: $background-color;
+    border: 11px solid #333;
+    border-radius: 8px;
+    width: 100%;
+    padding: 7px 17px;
+    font-family: LCD;
+    text-align: center;
+    font-size: 50px;
+    height: 80px;
+    overflow-y: hidden;
+    color: #fff;
+    line-height: 0.7;
+    -webkit-box-shadow: inset 0px 0px 0px 2px $background-color, 0px 0px 0px 2px $background-color;
+    box-shadow: inset 0px 0px 0px 2px $background-color, 0px 0px 0px 2px $background-color;
+    margin-bottom: 10px;
+}
+
+.floor-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.floor-box > div {
+    width: 100px;
+    height: 100px;
+    line-height: auto;
+}
+
+.floor-btn {
+    flex-grow: 1;
+}
+
+.building {
+    width: 60%;
+    background: $elevator-color;
+    height: $elevator-size;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.elevatorShaft {
+    background: $background-color;
+    width: 45%;
+    height: $elevator-size;
+    margin: 0 auto;
+    position: relative;
+}
+
+.elevatorContainer {
+    position: absolute;
+    height: $elevator-size;
+    width: 100%;
+    bottom: 0;
+}
+
+.elevator {
+    height: 20%;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    background: url("../../assets/images/elevator/elevator-inside.jpg");
+    background-size: 100% 100%;
+
+    .door-close,
+    .door-open {
+        background: $door-color;
+        width: 51%;
+        height: 100%;
+        top: 0;
+        position: absolute;
+        transition: all 900ms;
+    }
+    .door-close {
+        &#leftDoor {
+            left: 0;
+            background: $door-color;
+        }
+        &#rightDoor {
+            right: 0;
+            background: $door-color;
+        }
+    }
+    .door-open {
+        &#leftDoor {
+            left: -50% !important;
+        }
+        &#rightDoor {
+            right: -50% !important;
+        }
+    }
+}
+
+.transition {
+    height: 80%;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.automato {
+    margin-top: 100px;
+}
+
+.btn-back {
+    float: right;
+}
