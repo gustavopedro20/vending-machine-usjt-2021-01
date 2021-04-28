@@ -59,18 +59,17 @@ export class ElevatorComponent implements OnInit {
     this.doorIsOpen = false;
 
     setTimeout(() => {
-      this.changeAutomatoTransaction(floor, true);
       this.isTransition = true;
+      this.changeAutomatoTransaction(floor, true);
       this.elevatorTransition = `all ${animate}ms linear`;
       this.elevatorBottom = `${height}%`;
-      this.currentFloor = floor;
 
       setTimeout(() => {
+        this.currentFloor = floor;
         this.doorIsOpen = true;
-
-        setTimeout(() => this.isTransition = false, 600);
         this.changeAutomatoTransaction(floor, false);
 
+        setTimeout(() => this.isTransition = false, 600);
       }, animate);
 
     }, this.elevatorVelocity);
