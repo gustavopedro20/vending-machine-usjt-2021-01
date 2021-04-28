@@ -11,6 +11,10 @@ h1 {
   font-family: "lcd", Arial, Helvetica, sans-serif;
 }
 
+.btn-back {
+  float: right;
+}
+
 .machine {
   max-width: $machinewidth;
   margin: auto;
