@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'elevator',
     loadChildren: () => import('./elevator/elevator.module').then(m => m.ElevatorModule)
+  },
+  {
+    path: 'lexical-analyzer',
+    loadChildren: () => import('./lexical-analyzer/lexical-analyzer.module').then(m => m.LexicalAnalyzerModule)
   }
 ];
 
