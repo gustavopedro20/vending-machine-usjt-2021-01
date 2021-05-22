@@ -21,7 +21,7 @@ const LEX_SPECIFICATION: CustomMap[] = [
   {key: 'NUMBER', value: /-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-][0-9]+)?/},
   {key: 'LITERAL', value: /true|false|null/},
   {key: 'OPERATOR', value: /[{}[\],:]/},
-  {key: 'BLANC_SPACE', value: /\s+/},
+  {key: 'BLANK_SPACE', value: /\s+/},
   {key: 'ERROR', value: /./},
 ];
 
