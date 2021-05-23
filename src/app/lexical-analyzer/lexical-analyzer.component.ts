@@ -46,7 +46,7 @@ export class LexicalAnalyzerComponent {
   lex(): void {
     this.tokensFormatted = '';
     this.tokenize(this.src)
-      .forEach(token => this.tokensFormatted = this.tokensFormatted + (`Token(type='${token.type}', value='${token.value})'\n`));
+      .forEach(token => this.tokensFormatted = this.tokensFormatted + (`Token(type='${token.type}', value='${token.value}')\n`));
   }
 
   tokenize(src: string): Token[] {
